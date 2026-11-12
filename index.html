@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>لماذا ندرس المركبات التناسقية؟</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f6f8;--surf:#fff;--ink:#14232e;--mute:#52636f;--line:#d5dee4;--acc:#b8405e;--ok:#1f7a4d;--bad:#b3261e;--soft:#e8eef2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a22;--surf:#172833;--ink:#e8f0f5;--mute:#9fb2bf;--line:#2a3f4d;--acc:#e0708c;--ok:#5fd09a;--bad:#ff8a80;--soft:#1e3342}}
+:root[data-theme="dark"]{--bg:#0f1a22;--surf:#172833;--ink:#e8f0f5;--mute:#9fb2bf;--line:#2a3f4d;--acc:#e0708c;--ok:#5fd09a;--bad:#ff8a80;--soft:#1e3342}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.8 "IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif}
+main{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:clamp(26px,5vw,38px);line-height:1.4;margin:.2em 0}
+h2{font-size:22px;margin:0 0 6px}
+section{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:22px;margin-top:20px}
+.hook{background:var(--acc);color:#fff;border:0}
+.hook p{max-width:60ch;margin:.4em 0}
+.hook .q{font-size:19px;font-weight:500}
+p.lead{color:var(--mute);margin:0 0 14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+button{font:inherit;cursor:pointer;border:2px solid var(--line);background:var(--surf);color:var(--ink);border-radius:10px;padding:8px 14px;min-height:44px}
+button[aria-pressed="true"],button.on{border-color:var(--acc);background:var(--soft);font-weight:700}
+button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.lab{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center}
+@media(max-width:640px){.lab{grid-template-columns:1fr}}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.formula{font-size:22px;font-weight:700;text-align:center;margin:6px 0}
+.note{background:var(--soft);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:16px}
+svg{width:100%;height:auto;display:block}
+.ligand{transition:cx .5s,cy .5s,opacity .4s}
+.liquid{transition:fill .7s}
+.apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.apps button{text-align:start;min-height:70px}
+.q-opt{display:block;width:100%;text-align:start;margin:6px 0}
+.fb{min-height:1.8em;margin-top:6px;font-size:16px}
+.ok{color:var(--ok)}.bad{color:var(--bad)}
+.meta{font-size:14px;color:var(--mute);margin-top:18px}
+.prog{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:12px;font-size:15px}
+.bar{flex:1;height:10px;background:var(--soft);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .5s}
+.chip{font-size:14px;padding:2px 10px;border-radius:20px;background:var(--soft);color:var(--mute)}
+.chip.d{background:var(--ok);color:#fff}
+input[type=range]{width:100%;accent-color:var(--acc);height:36px}
+.fin{display:none;text-align:center;font-size:20px;font-weight:700;color:var(--ok);margin-top:10px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<main>
+<div class="prog" aria-live="polite"><span>تقدّمك</span><div class="bar"><i id="pbar"></i></div><span id="ptxt">0/4</span></div>
+
+<section class="hook">
+  <h1>لماذا أصبحت دراسة المركبات التناسقية من المجالات الرئيسية في الكيمياء اللاعضوية؟</h1>
+  <p class="q">اكتشف الجواب بنفسك: غيِّر الجسيمات المرتبطة بالأيون المركزي وراقب ما يحدث.</p>
+  <p>أهداف الدرس: تتعرّف أن المركبات التناسقية (المعقّدة) تتميّز بألوان مختلفة وخواص مغناطيسية وتفاعلات كيميائية متعددة، وتربط ذلك بأهميتها في الصناعة والزراعة والطب والصيدلة وإنتاج الطاقة النظيفة.</p>
+</section>
+
+<section aria-labelledby="s0">
+  <h2 id="s0">تجربة مختبرية: أضف الأمونيا إلى محلول النحاس</h2>
+  <p class="lead">في الكأس محلول أيون النحاس Cu²⁺ في الماء. توقّع أولاً ما سيحدث للون عند إضافة الأمونيا، ثم جرّب.</p>
+  <div id="predict"></div>
+  <div class="lab" style="margin-top:12px">
+    <svg viewBox="0 0 240 240" role="img" aria-label="الأيون المركزي وستة جسيمات مرتبطة به" id="mol0"></svg>
+    <div>
+      <svg viewBox="0 0 160 170" role="img" aria-label="الكأس">
+        <path d="M30 20 L40 150 Q80 165 120 150 L130 20" fill="none" stroke="var(--mute)" stroke-width="4" stroke-linejoin="round"/>
+        <path id="liq0" class="liquid" d="M34 60 L41 148 Q80 160 119 148 L126 60 Z" fill="#5bb8e8"/>
+      </svg>
+      <div class="formula"><span class="ltr" id="fml0">[Cu(H₂O)₆]²⁺</span></div>
+    </div>
+  </div>
+  <label for="amm">كمية الأمونيا المضافة: <b id="ammV">0</b> من 4</label>
+  <input type="range" id="amm" min="0" max="4" step="1" value="0" disabled>
+  <div class="note" id="expNote">أجب عن سؤال التوقّع أولاً لتفعيل المنزلق.</div>
+</section>
+
+<section aria-labelledby="s1">
+  <h2 id="s1">١. الاستكشاف: اللون يتغيّر مع ما يرتبط بالأيون</h2>
+  <p class="lead">اختر الأيون الفلزي المركزي ثم الجسيم المرتبط به (يُسمّى ليكند). لاحظ لون المحلول.</p>
+  <div class="row" role="group" aria-label="الأيون المركزي">
+    <button data-metal="Cu" aria-pressed="true">أيون النحاس Cu²⁺</button>
+    <button data-metal="Co" aria-pressed="false">أيون الكوبالت Co²⁺</button>
+  </div>
+  <div class="row" id="ligs" role="group" aria-label="الليكند"></div>
+  <div class="lab">
+    <svg viewBox="0 0 240 240" role="img" aria-label="رسم للأيون المركزي والجسيمات المحيطة به" id="mol">
+      <circle cx="120" cy="120" r="100" fill="none" stroke="var(--line)" stroke-dasharray="4 6"/>
+      <circle id="core" cx="120" cy="120" r="26" fill="var(--acc)"/>
+      <text id="coreT" x="120" y="127" text-anchor="middle" fill="#fff" font-weight="700" font-size="18">Cu</text>
+      <g id="ligG"></g>
+    </svg>
+    <div>
+      <svg viewBox="0 0 160 170" role="img" aria-label="كأس يحتوي المحلول الملوّن">
+        <path d="M30 20 L40 150 Q80 165 120 150 L130 20" fill="none" stroke="var(--mute)" stroke-width="4" stroke-linejoin="round"/>
+        <path id="liq" class="liquid" d="M34 60 L41 148 Q80 160 119 148 L126 60 Z" fill="#5bb8e8"/>
+      </svg>
+      <div class="formula"><span class="ltr" id="fml"></span></div>
+      <div class="note" id="colorNote"></div>
+    </div>
+  </div>
+  <p class="meta">الألوان تقريبية لأغراض الشرح. يتغيّر اللون عند تغيّر الليكند حتى مع بقاء الأيون المركزي نفسه.</p>
+</section>
+
+<section aria-labelledby="s2">
+  <h2 id="s2">٢. الخواص المغناطيسية: عدّ الإلكترونات المنفردة</h2>
+  <p class="lead">اختر أيوناً وانظر إلى إلكترونات المستوى الفرعي d (خمسة مربعات، كل سهم إلكترون).</p>
+  <div class="row" role="group" aria-label="الأيون">
+    <button data-ion="Zn" aria-pressed="false">Zn²⁺ (d¹⁰)</button>
+    <button data-ion="Cu" aria-pressed="true">Cu²⁺ (d⁹)</button>
+    <button data-ion="Fe" aria-pressed="false">Fe³⁺ (d⁵)</button>
+  </div>
+  <svg viewBox="0 0 300 110" role="img" aria-label="مربعات d وإلكتروناتها" id="dbox" style="max-width:420px;margin:auto"></svg>
+  <div class="note" id="magNote"></div>
+  <p class="meta">الأيون الذي فيه إلكترونات منفردة ينجذب إلى المجال المغناطيسي، والذي تكون إلكتروناته كلها مزدوجة لا ينجذب. هذا نموذج مبسّط؛ اعتمد على كتابك في التفاصيل.</p>
+</section>
+
+<section aria-labelledby="s3">
+  <h2 id="s3">٣. التطبيق: أين تُستخدم المركبات التناسقية؟</h2>
+  <p class="lead">اختر مجالاً لتقرأ دور هذه المركبات فيه، كما ورد في الدرس.</p>
+  <div class="apps" id="apps"></div>
+  <div class="note" id="appNote">اختر مجالاً من الأعلى.</div>
+</section>
+
+<section aria-labelledby="s4">
+  <h2 id="s4">٤. اختبر فهمك</h2>
+  <div id="quiz"></div>
+</section>
+
+<section aria-labelledby="s5">
+  <h2 id="s5">الخلاصة</h2>
+  <div class="fin" id="fin">🎉 أنجزت التجربة كاملة!</div>
+  <p>تُدرس المركبات التناسقية بكثافة لأنها تتميّز بألوان متنوعة وخواص مغناطيسية وتفاعلات كيميائية متعددة، ولهذا يتزايد دورها في الصناعة والزراعة والطب والصيدلة وإنتاج الطاقة النظيفة.</p>
+  <p class="meta">ملاحظة: المصدر المقدَّم مقتطف قصير من سؤال وجوابه فقط. أمثلة النحاس والكوبالت والأيونات في القسمين ١ و٢ شروحات توضيحية معروفة أُضيفت لتجسيد الفكرة، وليست نصاً من الصفحة؛ طابقها مع منهجك.</p>
+</section>
+</main>
+
+<script>
+const $=s=>document.querySelector(s);
+const SVGNS="http://www.w3.org/2000/svg";
+/* ---------- Section 1: colour lab ---------- */
+const DATA={
+ Cu:{sym:"Cu",ligs:[
+  {n:"ماء H₂O",k:"w",cnt:6,sym:"H₂O",f:"[Cu(H₂O)₆]²⁺",c:"#5bb8e8",t:"لون أزرق فاتح."},
+  {n:"أمونيا NH₃",k:"a",cnt:4,sym:"NH₃",f:"[Cu(NH₃)₄]²⁺",c:"#1f3fbf",t:"لون أزرق غامق. تغيّر اللون دليل على تكوّن مركب تناسقي جديد."},
+  {n:"كلوريد Cl⁻",k:"c",cnt:4,sym:"Cl⁻",f:"[CuCl₄]²⁻",c:"#b8c43a",t:"لون أصفر مخضرّ."}]},
+ Co:{sym:"Co",ligs:[
+  {n:"ماء H₂O",k:"w",cnt:6,sym:"H₂O",f:"[Co(H₂O)₆]²⁺",c:"#e88aa8",t:"لون وردي."},
+  {n:"كلوريد Cl⁻",k:"c",cnt:4,sym:"Cl⁻",f:"[CoCl₄]²⁻",c:"#2f56c9",t:"لون أزرق."}]}
+};
+let metal="Cu",li=0;
+function renderLigs(){
+  const box=$("#ligs");box.innerHTML="";
+  DATA[metal].ligs.forEach((l,i)=>{
+    const b=document.createElement("button");b.textContent=l.n;b.setAttribute("aria-pressed",i===li);
+    b.onclick=()=>{li=i;update()};box.appendChild(b);
+  });
+}
+function update(){
+  const d=DATA[metal],l=d.ligs[li];
+  $("#coreT").textContent=d.sym;
+  const g=$("#ligG");g.innerHTML="";
+  for(let i=0;i<l.cnt;i++){
+    const a=(i/l.cnt)*2*Math.PI-Math.PI/2;
+    const x=120+80*Math.cos(a),y=120+80*Math.sin(a);
+    const ln=document.createElementNS(SVGNS,"line");
+    ln.setAttribute("x1",120);ln.setAttribute("y1",120);ln.setAttribute("x2",x);ln.setAttribute("y2",y);
+    ln.setAttribute("stroke","var(--mute)");ln.setAttribute("stroke-width","2");g.appendChild(ln);
+    const c=document.createElementNS(SVGNS,"circle");
+    c.setAttribute("cx",x);c.setAttribute("cy",y);c.setAttribute("r",19);c.setAttribute("fill",l.c);c.setAttribute("stroke","var(--ink)");c.setAttribute("stroke-width","1.5");
+    g.appendChild(c);
+    const t=document.createElementNS(SVGNS,"text");
+    t.setAttribute("x",x);t.setAttribute("y",y+4);t.setAttribute("text-anchor","middle");t.setAttribute("font-size","10");t.setAttribute("font-weight","700");t.setAttribute("fill","#111");
+    t.textContent=l.sym;g.appendChild(t);
+  }
+  $("#liq").setAttribute("fill",l.c);
+  $("#fml").textContent=l.f;
+  $("#colorNote").textContent=l.t;
+  renderLigs();
+}
+document.querySelectorAll("[data-metal]").forEach(b=>b.onclick=()=>{
+  metal=b.dataset.metal;li=0;
+  document.querySelectorAll("[data-metal]").forEach(x=>x.setAttribute("aria-pressed",x===b));
+  update();
+});
+update();
+
+/* ---------- Section 2: d electrons ---------- */
+const IONS={
+ Zn:{e:[2,2,2,2,2],u:0},
+ Cu:{e:[2,2,2,2,1],u:1},
+ Fe:{e:[1,1,1,1,1],u:5}
+};
+function drawD(k){
+  const s=$("#dbox");s.innerHTML="";
+  IONS[k].e.forEach((n,i)=>{
+    const x=15+i*56;
+    s.insertAdjacentHTML("beforeend",`<rect x="${x}" y="25" width="46" height="46" rx="6" fill="none" stroke="var(--ink)" stroke-width="2"/>`);
+    if(n>=1)s.insertAdjacentHTML("beforeend",`<text x="${x+(n==2?14:23)}" y="60" text-anchor="middle" font-size="32" fill="${n==1?"var(--acc)":"var(--ink)"}">↑</text>`);
+    if(n==2)s.insertAdjacentHTML("beforeend",`<text x="${x+32}" y="60" text-anchor="middle" font-size="32" fill="var(--ink)">↓</text>`);
+  });
+  const u=IONS[k].u;
+  s.insertAdjacentHTML("beforeend",`<text x="150" y="100" text-anchor="middle" font-size="13" fill="var(--mute)">الأسهم الملوّنة: إلكترونات منفردة</text>`);
+  $("#magNote").textContent=u===0
+   ?"لا توجد إلكترونات منفردة: جميع الإلكترونات مزدوجة، فلا ينجذب الأيون إلى المغناطيس (دايامغناطيسي)."
+   :`عدد الإلكترونات المنفردة = ${u}: ينجذب الأيون إلى المغناطيس (بارامغناطيسي).`;
+}
+document.querySelectorAll("[data-ion]").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("[data-ion]").forEach(x=>x.setAttribute("aria-pressed",x===b));
+  drawD(b.dataset.ion);
+});
+drawD("Cu");
+
+/* ---------- Section 3: applications ---------- */
+const APPS=[
+ ["الصناعة","🏭","تؤدي المركبات التناسقية دوراً مهماً ومتزايداً في المجالات الصناعية."],
+ ["الزراعة","🌱","لها دور مهم ومتزايد في الزراعة."],
+ ["الطب والصيدلة","💊","لها دور مهم ومتزايد في الطب والصيدلة."],
+ ["الطاقة النظيفة","⚡","لها دور في إنتاج الطاقة النظيفة."]
+];
+APPS.forEach(a=>{
+  const b=document.createElement("button");b.innerHTML=`<span aria-hidden="true">${a[1]}</span> ${a[0]}`;
+  b.onclick=()=>{document.querySelectorAll("#apps button").forEach(x=>x.classList.toggle("on",x===b));$("#appNote").textContent=a[0]+": "+a[2]};
+  $("#apps").appendChild(b);
+});
+
+/* ---------- Section 4: quiz ---------- */
+const Q=[
+ {q:"ماذا يحدث للون محلول أيون النحاس عندما يرتبط بليكند مختلف؟",o:["لا يتغيّر اللون أبداً","يتغيّر اللون","يختفي الأيون"],a:1,
+  why:"الألوان المختلفة من أبرز ما تتميّز به المركبات التناسقية؛ ففي القسم ١ تحوّل الأزرق الفاتح إلى أزرق غامق أو أصفر مخضرّ."},
+ {q:"أيّ الأيونات التالية ينجذب إلى المغناطيس بسبب الإلكترونات المنفردة؟",o:["Zn²⁺ (d¹⁰)","Cu²⁺ (d⁹)"],a:1,
+  why:"Cu²⁺ فيه إلكترون منفرد واحد، أمّا Zn²⁺ فكل إلكتروناته مزدوجة."},
+ {q:"أيّ مجال مما يلي لم يُذكر ضمن تطبيقات المركبات التناسقية في الدرس؟",o:["الطب والصيدلة","إنتاج الطاقة النظيفة","صناعة الورق"],a:2,
+  why:"الدرس ذكر الصناعة والزراعة والطب والصيدلة والطاقة النظيفة. «صناعة الورق» ليست مذكورة بالاسم في هذا المقتطف."}
+];
+Q.forEach((item,qi)=>{
+  const d=document.createElement("div");d.style.marginBottom="18px";
+  d.innerHTML=`<p><b>${qi+1}) ${item.q}</b></p>`;
+  const fb=document.createElement("div");fb.className="fb";fb.setAttribute("aria-live","polite");
+  item.o.forEach((t,oi)=>{
+    const b=document.createElement("button");b.className="q-opt";b.textContent=t;
+    b.onclick=()=>{
+      if(oi===item.a){fb.className="fb ok";fb.textContent="✔ إجابة صحيحة. "+item.why}
+      else{fb.className="fb bad";fb.textContent="✘ ليست صحيحة، حاول مرة أخرى. تلميح: راجع القسم المرتبط بالسؤال."}
+    };
+    d.appendChild(b);
+  });
+  d.appendChild(fb);$("#quiz").appendChild(d);
+});
+/* ---------- Experience layer: experiment + progress ---------- */
+const done=new Set();
+function mark(k){done.add(k);const n=done.size;$("#pbar").style.width=(n/4*100)+"%";$("#ptxt").textContent=n+"/4";if(n===4)$("#fin").style.display="block"}
+const SUB="₀₁₂₃₄₅₆";
+function lerp(a,b,t){const p=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));const A=p(a),B=p(b);return "#"+A.map((v,i)=>Math.round(v+(B[i]-v)*t).toString(16).padStart(2,"0")).join("")}
+function drawExp(t){
+  const g=$("#mol0");g.innerHTML='<circle cx="120" cy="120" r="100" fill="none" stroke="var(--line)" stroke-dasharray="4 6"/><circle cx="120" cy="120" r="26" fill="var(--acc)"/><text x="120" y="127" text-anchor="middle" fill="#fff" font-weight="700" font-size="18">Cu</text>';
+  for(let i=0;i<6;i++){
+    const a=(i/6)*2*Math.PI-Math.PI/2,x=120+80*Math.cos(a),y=120+80*Math.sin(a),n=i<t;
+    g.insertAdjacentHTML("beforeend",`<line x1="120" y1="120" x2="${x}" y2="${y}" stroke="var(--mute)" stroke-width="2"/><circle cx="${x}" cy="${y}" r="19" fill="${n?"#1f3fbf":"#5bb8e8"}" stroke="var(--ink)" stroke-width="1.5"/><text x="${x}" y="${y+4}" text-anchor="middle" font-size="10" font-weight="700" fill="${n?"#fff":"#111"}">${n?"NH₃":"H₂O"}</text>`);
+  }
+  $("#liq0").setAttribute("fill",lerp("#5bb8e8","#1f3fbf",t/4));
+  $("#fml0").textContent=t===0?"[Cu(H₂O)₆]²⁺":`[Cu(NH₃)${SUB[t]}(H₂O)${SUB[6-t]}]²⁺`;
+  $("#ammV").textContent=t;
+  $("#expNote").textContent=t===0?"لا أمونيا بعد: اللون أزرق فاتح.":t<4?"تحلّ جزيئات NH₃ محل جزيئات الماء حول الأيون، ويزداد اللون عمقاً.":"ارتبطت 4 جزيئات NH₃ بالأيون المركزي: لون أزرق غامق. تغيّر اللون يدل على تكوّن مركب تناسقي جديد.";
+  if(t===4)mark("exp");
+}
+drawExp(0);
+$("#amm").oninput=e=>drawExp(+e.target.value);
+(function(){
+  const box=$("#predict");
+  box.innerHTML='<p><b>توقّعك: ماذا يحدث للون عند إضافة الأمونيا؟</b></p>';
+  const fb=document.createElement("div");fb.className="fb";fb.setAttribute("aria-live","polite");
+  ["يبقى أزرق فاتحاً","يتحوّل إلى أزرق أغمق","يصبح المحلول عديم اللون"].forEach((t,i)=>{
+    const b=document.createElement("button");b.className="q-opt";b.textContent=t;
+    b.onclick=()=>{$("#amm").disabled=false;$("#expNote").textContent="حرّك المنزلق وراقب النتيجة.";
+      fb.className="fb "+(i===1?"ok":"bad");fb.textContent=i===1?"توقّع في محلّه، لنتحقق بالتجربة.":"لنختبر توقّعك بالتجربة؛ حرّك المنزلق وقارن."};
+    box.appendChild(b)});
+  box.appendChild(fb);
+})();
+const seen=new Set();
+document.querySelectorAll("[data-ion]").forEach(b=>b.addEventListener("click",()=>{seen.add(b.dataset.ion);if(seen.size===3)mark("mag")}));
+const appSeen=new Set();
+document.querySelectorAll("#apps button").forEach((b,i)=>b.addEventListener("click",()=>{appSeen.add(i);if(appSeen.size===4)mark("apps")}));
+(function(){const ok=new Set();document.querySelectorAll("#quiz > div").forEach((d,i)=>d.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{if(d.querySelector(".fb").classList.contains("ok")){ok.add(i);if(ok.size===Q.length)mark("quiz")}})))})();
+</script>
+</body>
+</html>
